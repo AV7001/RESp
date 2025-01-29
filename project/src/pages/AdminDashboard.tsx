@@ -6,7 +6,9 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../lib/firebase';
 import { getAuth } from 'firebase/auth';
 
-const auth = getAuth();
+const auth = getAuth(); 
+
+
 
 interface Staff {
   id: string;
