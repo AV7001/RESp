@@ -78,7 +78,7 @@ export default function UserDashboard() {
     };
 
     fetchSites();
-    fetchTasks();
+    // fetchTasks();
   }, [user]);
 
   const handleSignOut = async () => {
