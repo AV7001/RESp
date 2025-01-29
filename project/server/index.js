@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import * as admin from 'firebase-admin';
+import admin from 'firebase-admin';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -8,16 +8,17 @@ dotenv.config();
 const app = express();
 
 // Initialize Firebase Admin
-admin.initializeApp({
-  credential: admin.credential.cert({
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+admin?.initializeApp({
+  credential: admin?.credential?.cert({
+    projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+    clientEmail: process.env.VITE_FIREBASE_CLIENT_EMAIL,
+    privateKey: process.env.VITE_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
   }),
 });
 
 app.use(cors());
 app.use(express.json());
+
 
 // Middleware to verify Firebase ID token
 const authenticateUser = async (req, res, next) => {
